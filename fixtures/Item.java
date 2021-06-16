@@ -15,17 +15,13 @@ public class Item extends Fixture {
 	public String getAction() {
 		return action;
 	}
-
-	public String getEffectOne() {
-		return effectOne;
-	}
-
-	public String getEffectTwo() {
-		return effectTwo;
-	}
 	
-	public void interact() {
-		interactionCount++;
+	public String getEffect() {
+		if (++interactionCount == 1) {
+			return effectOne;
+		} else {
+			return effectTwo;
+		}
 	}
 	
 	//look at gets long description

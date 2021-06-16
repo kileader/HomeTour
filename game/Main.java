@@ -2,6 +2,8 @@ package game;
 
 import java.util.Scanner;
 
+import fixtures.Room;
+
 public class Main {
 	
 	public static void main(String[] args) {
@@ -28,7 +30,12 @@ public class Main {
 	}
 	
 	public void printRoom(Player player) {
-		player.getCurrentRoom();
+		Room cr = player.getCurrentRoom();
+		
+		System.out.println(cr.getName() + "\n\n"
+				+ cr.getLongDescription() + "\n\n"
+				+ "Exits:\n"
+				+ cr.getExits());
 	}
 	
 	public String[] collectInput() {

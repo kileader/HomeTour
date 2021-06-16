@@ -9,15 +9,27 @@ public class Room extends Fixture {
 		super(name, shortDescription, longDescription);
 		this.exits = new Room[4]; // 0: North, 1: East, 2: South, 3: West
 	}
-		
+	
 	public Room[] getExits() {
 		return exits;
+	}
+	
+	public void setExits(Room[] exits) {
+		this.exits = exits;
+	}
+	
+	public Item getItem() {
+		return item;
+	}
+	
+	public void setItem(Item item) {
+		this.item = item;
 	}
 		
 	public Room getExit(String direction) {
 		switch (direction) {
 			default:
-				return exits[0]; // TODO Figure this out
+				return this;
 			case "north":
 				return exits[0];
 			case "east":
