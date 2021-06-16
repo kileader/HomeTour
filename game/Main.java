@@ -6,6 +6,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		// Game loop: display a prompt, collect input, parse
+		while(true) {
+			
+		}
 		
 	}
 	
