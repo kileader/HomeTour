@@ -26,17 +26,17 @@ public class Room extends Fixture {
 		this.item = item;
 	}
 		
-	public Room getExit(String direction) {
+	public Room getExit(int direction) {
 		switch (direction) {
 			default:
 				return this;
-			case "north":
+			case 0:
 				return exits[0];
-			case "east":
+			case 1:
 				return exits[1];
-			case "south":
+			case 2:
 				return exits[2];
-			case "west":
+			case 3:
 				return exits[3];
 		}
 	}
