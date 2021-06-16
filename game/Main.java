@@ -5,15 +5,30 @@ import java.util.Scanner;
 public class Main {
 	
 	public static void main(String[] args) {
+
+		// Initiate classes
+		Main main = new Main();
+		Player player = new Player();
+		RoomManager rm = new RoomManager();
+		ItemManager im = new ItemManager();
+		
+		// Initiate data
+		rm.init();
+		im.init();
+		
+		// Set starting room
+		player.setCurrentRoom(rm.getStartingRoom());
+		
 		// Game loop: display a prompt, collect input, parse
 		while(true) {
+			main.printRoom(player);
 			
 		}
 		
 	}
 	
 	public void printRoom(Player player) {
-		// Print a prompt to the console for the player's current room
+		player.getCurrentRoom();
 	}
 	
 	public String[] collectInput() {
