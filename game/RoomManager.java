@@ -5,13 +5,19 @@ import fixtures.Room;
 public class RoomManager {
 	
 	private Room startingRoom;
-	private Room[] rooms = new Room[5];
+	private Room[] rooms;
+	
+	public RoomManager() {
+		rooms = new Room[5];
+	}
 	
 	public void init() {
 		
-		// Initialize ItemManager object
+		// Initialize ItemManager and BarrierManager
 		ItemManager im = new ItemManager();
 		im.init();
+		BarrierManager bm = new BarrierManager();
+		bm.init();
 		
 		// Defining room objects
 		Room livingRoom = new Room(
@@ -19,7 +25,6 @@ public class RoomManager {
 				"a spacious living room",
 				"The living room has furniture, a TV, and artwork on the walls.\n"
 				+ "A dog gets up from a lounging chair and approaches you.\n"
-				+ "On a shelf above a fireplace there is a machete.\n"
 				+ "To the north is the kitchen and dining room.\n"
 				+ "To the south is a hallway.");
 		livingRoom.setItem("dog", im.getItem("dog"));
@@ -30,7 +35,6 @@ public class RoomManager {
 				"a kitchen and dining area",
 				"The kitchen is seperated from the dining table with a marble countertop.\n"
 				+ "In the kitchen there is a refridgerator.\n"
-				+ "On the countertop is a key.\n"
 				+ "To the south is a living room");
 		kitchenAndDiningRoom.setItem("fridge", im.getItem("fridge"));
 		kitchenAndDiningRoom.setItem("key", im.getItem("key"));
@@ -40,10 +44,9 @@ public class RoomManager {
 				"a hallway to four rooms",
 				"The hallway is to four closed doors.\n"
 				+ "Only one door looks... uh... defined.\n"
-				+ "On the wall there is a thermostat.\n"
-				+ "To the west is a bedroom.");
+				+ "On the wall there is a thermostat.");
 		hallway.setItem("thermostat", im.getItem("thermostat"));
-		hallway.setItem("door", im.getItem("door"));
+		hallway.setBarrier("door", bm.getBarrier("door"));
 		
 		Room bedroom = new Room(
 				"Bedroom",
@@ -54,14 +57,14 @@ public class RoomManager {
 				+ "To the east is a hallway.");
 		bedroom.setItem("desk", im.getItem("desk"));
 		
-		// Setting room exits
+		// Setting room exits and blocked exits
 		livingRoom.setExit("north", kitchenAndDiningRoom);
 		livingRoom.setExit("south", hallway);
 		
 		kitchenAndDiningRoom.setExit("south", livingRoom);
 		
 		hallway.setExit("north", livingRoom);
-		hallway.setExit("west", bedroom);
+		hallway.setBlockedExit("west", bedroom);
 		
 		bedroom.setExit("east", hallway);
 		

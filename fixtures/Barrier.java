@@ -4,12 +4,14 @@ public class Barrier extends Fixture {
 	
 	private String clearedDescription;
 	private String correctTool;
+	private String direction;
 	private boolean cleared;
 	
 	public Barrier(String name, String shortDescription, String longDescription,
-			String clearedDescription, String correctTool) {
+			String clearedDescription, String direction, String correctTool) {
 		super(name, shortDescription, longDescription);
 		this.clearedDescription = clearedDescription;
+		this.direction = direction;
 		this.correctTool = correctTool;
 		cleared = false;
 	}
@@ -22,12 +24,16 @@ public class Barrier extends Fixture {
 		return cleared;
 	}
 
-	public void clearBarrier(String itemName) {
-		if (itemName.equals(correctTool)) {
-			cleared = true;
-		}
+	public void setCleared(boolean cleared) {
+		this.cleared = cleared;
 	}
 
+	public String getDirection() {
+		return direction;
+	}
 	
+	public String getCorrectTool() {
+		return correctTool;
+	}
 	
 }

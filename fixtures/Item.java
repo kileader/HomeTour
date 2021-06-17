@@ -40,4 +40,8 @@ public class Item extends Fixture {
 		return uses;
 	}
 	
+	public String getUse(String barrierName) {
+		return uses.get(barrierName);
+	}
+	
 }

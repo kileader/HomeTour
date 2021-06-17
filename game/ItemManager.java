@@ -73,7 +73,7 @@ public class ItemManager {
 		
 		Item key = new Item(
 				"Key",
-				"a key on the counter",
+				"a bronze key",
 				"You look at the key, and it seems very keylike.\n"
 				+ "It's almost as if you know it will unlock something.",
 				"keep",
