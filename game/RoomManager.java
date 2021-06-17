@@ -37,7 +37,7 @@ public class RoomManager {
 				"a hallway to four rooms",
 				"The hallway is to four rooms, but only one room looks... uh... defined.\n"
 				+ "On the wall there is a thermostat.\n"
-				+ "To the west is a bedroom.\n");
+				+ "To the west is a bedroom.");
 		hallway.setItem(im.getItems()[3]); // Add thermostat item.
 		
 		Room bedroom = new Room(

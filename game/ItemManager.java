@@ -18,7 +18,7 @@ public class ItemManager {
 		
 		Item fridge = new Item(
 				"Fridge",
-				"a plain refridgerator",
+				"a plain fridge",
 				"You see a refridgerator displaying some family photos\n"
 				+ "on the front with an assortment of magnets.\n"
 				+ "Maybe you can open it?",
@@ -27,7 +27,7 @@ public class ItemManager {
 				"The fridge is still empty. Do you have nothing to do?");
 		
 		Item computerDesk = new Item(
-				"Computer Desk",
+				"Desk",
 				"a computer desk",
 				"The computer desk is worn out and wooden.\n"
 				+ "On top is two monitors and a laptop.\n"

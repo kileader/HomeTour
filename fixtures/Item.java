@@ -27,5 +27,4 @@ public class Item extends Fixture {
 		}
 	}
 	
-	//look at gets long description
 }

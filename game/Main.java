@@ -8,8 +8,10 @@ import fixtures.Room;
 
 public class Main {
 	
+	static boolean promptRoom = true;
+	
 	public static void main(String[] args) {
-
+		
 		// Introduction Message
 		System.out.println("Welcome to my home tour!\n"
 				+ "To use this virtual tour, after every prompt,\n"
@@ -26,7 +28,6 @@ public class Main {
 		// Initiate data
 		rm.init();
 		player.setCurrentRoom(rm.getStartingRoom());
-		boolean promptRoom = true;
 		
 		// Game loop: display a prompt, collect input, parse
 		gameLoop: while(true) {
@@ -43,10 +44,6 @@ public class Main {
 			// Check for quit keyword
 			if (command[0].equals("quit")) {
 				break gameLoop;
-			}
-			// Check for player travel
-			else if (command[0].equals("go")){
-				promptRoom = true;
 			}
 			
 			// Parse the input
@@ -142,6 +139,7 @@ public class Main {
 			if (exit.getName().equals("Wall")) {
 				System.out.println("You bump into a wall. Congratulations!\n");
 			} else {
+				promptRoom = true;
 				player.setCurrentRoom(exit);
 			}
 		} 

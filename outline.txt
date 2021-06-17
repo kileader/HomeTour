@@ -1,5 +1,0 @@
-1. Display prompt
-2. Collect input
-3. Process input as a command
-4. Print output of a command
-
