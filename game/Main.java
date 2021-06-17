@@ -15,7 +15,7 @@ public class Main {
 				+ "To use this virtual tour, after every prompt,\n"
 				+ "please enter an action word and a target word.\n"
 				+ "Example actions: go, inspect, open\n"
-				+ "Type quit to quit");
+				+ "Type quit to quit\n");
 		
 		// Initiate classes
 		Main main = new Main();
@@ -26,21 +26,27 @@ public class Main {
 		// Initiate data
 		rm.init();
 		player.setCurrentRoom(rm.getStartingRoom());
+		boolean promptRoom = true;
 		
 		// Game loop: display a prompt, collect input, parse
-		gameLoop:
-		while(true) {
+		gameLoop: while(true) {
+			
 			// Display a prompt
-			main.printRoom(player);
+			if (promptRoom) {
+				main.printRoom(player);
+				promptRoom = false;
+			}
 			
 			// Collect input
 			String[] command = main.collectInput(scanner);
 			
-			System.out.println("command: " + command[0] + " " + command[1]);
-			
 			// Check for quit keyword
-			if (command[0] == "quit") {
+			if (command[0].equals("quit")) {
 				break gameLoop;
+			}
+			// Check for player travel
+			else if (command[0].equals("go")){
+				promptRoom = true;
 			}
 			
 			// Parse the input
@@ -102,19 +108,19 @@ public class Main {
 		String[] directionsArray = {"north", "east", "south", "west"};
 		
 		// Provide long description if command is inspect item
-		if (command[0] == "inspect" && 
-				command[1] == item.getName().toLowerCase()) {
-			System.out.println(item.getLongDescription());
+		if (command[0].equals("inspect") && 
+				command[1].equals(item.getName().toLowerCase())) {
+			System.out.println(item.getLongDescription() + "\n");
 		} 
 		
 		// Provide effect if command is the correct action and item
-		else if (command[0] == item.getAction() && 
-				command[1] == item.getName().toLowerCase()) {
-			System.out.println(item.getEffect());
+		else if (command[0].equals(item.getAction()) && 
+				command[1].equals(item.getName().toLowerCase())) {
+			System.out.println(item.getEffect() + "\n");
 		} 
 		
 		// Provide appropriate exit if command is go direction
-		else if (command[0] == "go" && 
+		else if (command[0].equals("go") && 
 				Arrays.asList(directionsArray).contains(command[1])) {
 			Room exit = cr;
 			
@@ -133,7 +139,7 @@ public class Main {
 				break;
 			}
 			
-			if (exit.getName() == "Wall") {
+			if (exit.getName().equals("Wall")) {
 				System.out.println("You bump into a wall. Congratulations!\n");
 			} else {
 				player.setCurrentRoom(exit);

@@ -2,7 +2,7 @@ package fixtures;
 
 public class Item extends Fixture {
 	
-	private static int interactionCount = 0;
+	private int interactionCount = 0;
 	private String action;
 	private String effectOne;
 	private String effectTwo;
@@ -10,6 +10,9 @@ public class Item extends Fixture {
 	public Item(String name, String shortDescription, String longDescription,
 			String action, String effectOne, String effectTwo) {
 		super(name, shortDescription, longDescription);
+		this.action = action;
+		this.effectOne = effectOne;
+		this.effectTwo = effectTwo;
 	}
 
 	public String getAction() {
