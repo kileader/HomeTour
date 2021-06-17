@@ -1,12 +1,20 @@
 package game;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import fixtures.Item;
 
 public class ItemManager {
 	
-	private Item[] items = new Item[6];
+	private Map<String,Item> items;
+	
+	public ItemManager() {
+		items = new HashMap<>();
+	}
 	
 	public void init() {
+		
 		Item dog = new Item(
 				"Dog",
 				"a friendly looking dog",
@@ -15,6 +23,7 @@ public class ItemManager {
 				"pet",
 				"The dog sniffs you then starts wagging its tail.",
 				"The good boy loves you!");
+		items.put("dog", dog);
 		
 		Item fridge = new Item(
 				"Fridge",
@@ -25,6 +34,7 @@ public class ItemManager {
 				"open",
 				"The fridge is pretty much empty.",
 				"The fridge is still empty. Do you have nothing to do?");
+		items.put("fridge", fridge);
 		
 		Item computerDesk = new Item(
 				"Desk",
@@ -37,6 +47,7 @@ public class ItemManager {
 				"use",
 				"You start the video call on the laptop and open STS on the desktop.",
 				"Congrats, you're learning Java.");
+		items.put("desk", computerDesk);
 		
 		Item thermostat = new Item(
 				"Thermostat",
@@ -46,6 +57,7 @@ public class ItemManager {
 				"use",
 				"You feel hot, so you turn the thermostat down.",
 				"You stop and think to yourself. Didn't you just turn it down?");
+		items.put("thermostat", thermostat);
 		
 		Item machete = new Item(
 				"Machete",
@@ -56,6 +68,7 @@ public class ItemManager {
 				"keep",
 				"You carry the machete with you. Please don't cut anything.",
 				"You are already keeping the machete.");
+		items.put("machete", machete);
 		machete.putUse("door", "You slash up the door, but it doesn't open.");
 		
 		Item key = new Item(
@@ -66,19 +79,14 @@ public class ItemManager {
 				"keep",
 				"You carry the key with you in your inventory.",
 				"You are already keeping the key.");
+		items.put("key", key);
 		key.putUse("door", "You put the key into the lock. It fits!\n"
 				+ "You unlock the door!");
 		
-		items[0] = dog;
-		items[1] = fridge;
-		items[2] = computerDesk;
-		items[3] = thermostat;
-		items[4] = machete;
-		items[5] = key;
 	}
 	
-	public Item[] getItems() {
-		return items;
+	public Item getItem(String key) {
+		return items.get(key);
 	}
 	
 }

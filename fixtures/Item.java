@@ -1,5 +1,6 @@
 package fixtures;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Item extends Fixture {
@@ -8,7 +9,7 @@ public class Item extends Fixture {
 	private String action;
 	private String effectOne;
 	private String effectTwo;
-	private Map<String, String> uses;
+	private Map<String,String> uses;
 	
 	public Item(String name, String shortDescription, String longDescription,
 			String action, String effectOne, String effectTwo) {
@@ -16,6 +17,7 @@ public class Item extends Fixture {
 		this.action = action;
 		this.effectOne = effectOne;
 		this.effectTwo = effectTwo;
+		uses = new HashMap<>();
 	}
 
 	public String getAction() {
@@ -34,7 +36,7 @@ public class Item extends Fixture {
 		uses.put(barrierName, useDescription);
 	}
 	
-	public Map<String, String> getUses() {
+	public Map<String,String> getUses() {
 		return uses;
 	}
 	

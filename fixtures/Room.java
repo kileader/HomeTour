@@ -1,43 +1,40 @@
 package fixtures;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Room extends Fixture {
 	
-	private Room[] exits;
-	private Item item;
+	private Map<String,Room> exits;
+	private Map<String,Item> items;
 	
 	public Room(String name, String shortDescription, String longDescription) {
 		super(name, shortDescription, longDescription);
-		this.exits = new Room[4]; // 0: North, 1: East, 2: South, 3: West
+		exits = new HashMap<>();
+		items = new HashMap<>();
 	}
 	
-	public Room[] getExits() {
+	public Room getExit(String direction) {
+		return exits.get(direction);
+	}
+	
+	public Map<String,Room> getExits() {
 		return exits;
 	}
 	
-	public void setExits(Room[] exits) {
-		this.exits = exits;
+	public void setExit(String direction, Room exit) {
+		exits.put(direction, exit);
 	}
 	
-	public Item getItem() {
-		return item;
+	public Item getItem(String key) {
+		return items.get(key);
 	}
 	
-	public void setItem(Item item) {
-		this.item = item;
+	public Map<String,Item> getItems() {
+		return items;
 	}
-		
-	public Room getExit(int direction) {
-		switch (direction) {
-			default:
-				return this;
-			case 0:
-				return exits[0];
-			case 1:
-				return exits[1];
-			case 2:
-				return exits[2];
-			case 3:
-				return exits[3];
-		}
+	
+	public void setItem(String name, Item item) {
+		items.put(name, item);
 	}
 }
