@@ -4,7 +4,7 @@ import fixtures.Item;
 
 public class ItemManager {
 	
-	private Item[] items = new Item[4];
+	private Item[] items = new Item[6];
 	
 	public void init() {
 		Item dog = new Item(
@@ -23,7 +23,7 @@ public class ItemManager {
 				+ "on the front with an assortment of magnets.\n"
 				+ "Maybe you can open it?",
 				"open",
-				"The fridge is empty except for some almond milk.",
+				"The fridge is pretty much empty.",
 				"The fridge is still empty. Do you have nothing to do?");
 		
 		Item computerDesk = new Item(
@@ -47,10 +47,34 @@ public class ItemManager {
 				"You feel hot, so you turn the thermostat down.",
 				"You stop and think to yourself. Didn't you just turn it down?");
 		
+		Item machete = new Item(
+				"Machete",
+				"a decorative machete in its sheath",
+				"You pick up the machete and notice that the sheath\n"
+				+ "and handle are made of intricately carved wood. You take the blade\n"
+				+ "out and see that the blade is old but sharp, then put it back.",
+				"keep",
+				"You carry the machete with you. Please don't cut anything.",
+				"You are already keeping the machete.");
+		machete.putUse("door", "You slash up the door, but it doesn't open.");
+		
+		Item key = new Item(
+				"Key",
+				"a key on the counter",
+				"You look at the key, and it seems very keylike.\n"
+				+ "It's almost as if you know it will unlock something.",
+				"keep",
+				"You carry the key with you in your inventory.",
+				"You are already keeping the key.");
+		key.putUse("door", "You put the key into the lock. It fits!\n"
+				+ "You unlock the door!");
+		
 		items[0] = dog;
 		items[1] = fridge;
 		items[2] = computerDesk;
 		items[3] = thermostat;
+		items[4] = machete;
+		items[5] = key;
 	}
 	
 	public Item[] getItems() {

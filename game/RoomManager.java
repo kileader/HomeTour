@@ -23,6 +23,7 @@ public class RoomManager {
 				+ "To the north is the kitchen and dining room.\n"
 				+ "To the south is a hallway.");
 		livingRoom.setItem(im.getItems()[0]); // Add dog item.
+		//TODO add machete
 		
 		Room kitchenAndDiningRoom = new Room(
 				"Kitchen and Dining Room",
@@ -31,6 +32,7 @@ public class RoomManager {
 				+ "In the kitchen there is a refridgerator.\n"
 				+ "To the south is a living room");
 		kitchenAndDiningRoom.setItem(im.getItems()[1]); // Add fridge item.
+		//TODO add key
 		
 		Room hallway = new Room(
 				"Hallway",
@@ -39,6 +41,7 @@ public class RoomManager {
 				+ "On the wall there is a thermostat.\n"
 				+ "To the west is a bedroom.");
 		hallway.setItem(im.getItems()[3]); // Add thermostat item.
+		//TODO add door
 		
 		Room bedroom = new Room(
 				"Bedroom",

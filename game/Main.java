@@ -8,7 +8,7 @@ import fixtures.Room;
 
 public class Main {
 	
-	static boolean promptRoom = true;
+	private static boolean promptRoom = true;
 	
 	public static void main(String[] args) {
 		
@@ -16,7 +16,7 @@ public class Main {
 		System.out.println("Welcome to my home tour!\n"
 				+ "To use this virtual tour, after every prompt,\n"
 				+ "please enter an action word and a target word.\n"
-				+ "Example actions: go, inspect, open\n"
+				+ "Example actions: go, inspect, open, keep\n"
 				+ "Type quit to quit\n");
 		
 		// Initiate classes
